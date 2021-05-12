@@ -1,6 +1,11 @@
 ---
-title: "Summative"
-output: pdf_docoument 
+title: "Behavioural studies on two colour morphs of the two-spot ladybird (Adalia Bipunctata)"
+output: 
+  pdf_document: 
+    toc: yes
+    fig_width: 4
+    fig_height: 3.5
+    number_sections: yes
 ---
 
 ```{r setup, include=FALSE}
@@ -9,12 +14,87 @@ library(ggplot2)
 library(tidyverse)
 library(ggpubr)
 library(rstatix)
+library(tigerstats)
 
 Ladybird <- read.csv("/cloud/project/Ladybird.csv")
 head(Ladybird)
 ```
-#introduction
-As the field of ecology expands, so does analysing the behaviour studies on two -spot ladybirds. Coccinellidae, known as ladybirds, is from the family of the Coleoptera. The family of Beetles are the most diverse and species-rich group of insects (Zhang et al., 2018) with around  300,000 described species (Woodcock et al., 2013). A study has shown that not all ladybirds have the same predominant colour BOOK. the colours vary, for example, Adalia bipunctata known as two spot ladybirds have a red ground colour with black spots known as typical morphs whereas melanic morphs have a black ground colour with red spots. The two spot ladybird are becoming more widespread and survival of species in their areas. 
+
+
+
+#              Abstract
+
+This experiment examined the behaviours of two colour morphs of the two-spot ladybird (Adalia Bipunctata). Adalia bipunctata L. is a tree-dwelling lady beetle native to Europe, Central Asia, and North America that is commercially available for aphid control in Europe and North America. Lady beetles are home to a diverse range of symbionts, including parasitoids, viruses, eugregarines, fungi, bacteria, nematodes, and microsporidia (Steele and Bjørnson, 2014). The comparison of Weight average between Melanic and Typical morphs and The assessment of time it took to attack aphid on female and male two spot ladybirds was tested using a unpaired t test in r studio. The results proved my hypothesis and displayed melanic morphs having a mating advantage due to their fitness and secondary female two spot ladybirds having a slower paid attack compared to males. These results have important implications for understanding and analysing the behavioural studies of two spot ladybirds. 
+
+#           Introduction 
+
+As the field of ecology expands, so does analysing the behaviour studies on two -spot ladybirds. Coccinellidae, known as ladybirds, is from the family of the Coleoptera. The family of Beetles are the most diverse and species-rich group of insects (Zhang et al., 2018) with around  300,000 described species (Woodcock et al., 2013). A study has shown that not all ladybirds have the same predominant colour. The colours vary, for example, Adalia bipunctata known as two spot ladybirds have a red ground colour with black spots known as typical morphs whereas melanic morphs have a black ground colour with red spots. The two spot ladybird are becoming more widespread and survival of species in their areas. 
 The main objective of this report was to determine if there was any behavioural differences  between two colour morphs of the two-spot ladybird. As a result of the two colour morphs of the two spot ladybird, it is important that the behaviour is analysed. Currently, there is an abundance of research regarding this. Several studies state that melanics of both sexes have a general mating advantage over the typical morph due to the influence of body weight (Tomlinson, Kearns and Veltman, 1995). Whereas some studies suggest that melanic morphs will have a selective advantage over the non-melanics due to the greater ability to absorb solar radiation. Therefore clarification is needed.
 
+# Results 
+
+The comparison of Weight average between Melanic and Typical morphs
+
+Weight differences vary depending on the type of morph and activities they perform. A study showed that mating advantage has a correlation with bodyweight (Stewart and Dixon, 1989).  I hypothesised that melanic morphs have a better fitness compared to typical morphs due to their mating advantage. To test this hypothesis, I compared the colour morph and weight average using a general linear model. 
+This result showed that the difference of weight average between melanic and typical morphs was not statistically significant (p < 0.05). the typical morphs have a greater mean mass weight compared to typical which has supported my hypothesis. Statistical analysis was conducted using R studio by unpaired t- test. The results being not significant demonstrates a strong evidence for the null hypothesis. 
+
+``` {r}
+
+ggplot(Ladybird, aes(Colour.morph,Mass.Ave))+ geom_boxplot()+labs(x= 'Colour Morph', y= 'Average Mass') +
+  scale_x_discrete(labels=c('Melanic','Typical'))+ stat_compare_means(method="t.test") 
+
+```
+
+
+The assessment of time it took to attack aphid on female and male two spot ladybirds 
+
+The of attack aphids can vary depending on the sex of the ladybird. I hypothesised that females take the longest to attack aphid . To test this hypothesis, I compared the time it took to attack aphid and gender using a graph line. A line graph represents a continuous variable and are normally designed with the dependent variable on the Y-axis and the independent variable on the horizontal X-axis (Peebles and Ali, 2015). 
+
+This result showed the time it took to attack aphid on female and male two spot ladybirds was not statistically significant (p  0.05>). The female two spot ladybirds took longer to attack aphid compared to the males  which has supported my hypothesis. Statistical analysis was conducted using R studio by unpaired t- test. The results being  significant demonstrates a strong evidence for my  hypothesis. 
+
+```{r}
+ggplot(Ladybird, aes(Colour.morph,Mass.Ave))+ geom_boxplot()+labs(x= 'Colour Morph', y= 'Average Mass') +
+  scale_x_discrete(labels=c('Melanic','Typical')) + stat_compare_means(method="t.test") 
+
+
+
+
+
+```
+
+# Dissussion 
+
+The comparison of Weight average between Melanic and Typical morphs
+Melanic morphs being a smaller mass compared to typical has been beneficial for mating. Studies state that melanics of both sexes have a general mating advantage over the typical morph (Tomlinson, Kearns and Veltman, 1995).  The reason for this because melanic beetles tend to mate more frequently and earlier than non-melanics. As a result, the mating advantage of melanics will only increase their fitness relative to non-melanics when eggs are laid at the beginning of the season or when sperm transferred in early mattings can fertilize eggs laid after later mattings (De Jong, Verhoog and Brakefield, 1993). However, other studies have suggested that mating is not the only reason for the explained fitness. Believes non melanic  morphs have a higher cuticular reflectance and lower temperature excess. because of their  melanics morphs have a greater ability to absorb solar radiation.
+
+The assessment of time it took to attack aphid on female and male two spot ladybirds
+The attack aphid on female was taken longer compared to males.an experiment was done to test where Both male and female two spot ladybirds adults were placed separately in tubes with barley plants and assess the time and behaviour of the attack aphid. The study showed with the female two spot ladybirds , there was a signigant frequency of aphid visits to the side of the Petri dish with tracks was observed until six days. Whereas the male ladybirds the avoidance response of aphids was lesser (Ninkovic et al., 2013). 
+The predation risk on ladybirds can very depending on the prey fitness and early assessment. A study analysed the ability of the bird cherry oat aphid to detect the seven spot ladybird. The study examined the ladybirds walking track and how different sexes of the ladybird behaved differently. The ladybirds leave a chemical track however the aphid are able to assess this and change their behaviour to suit their advantage. chemical signals allowing aphid parasitoids or ladybirds to squeeze into ant–aphid mutualistic association (Ninkovic et al., 2013).
+
+
+# Conclusion 
+
+To conclude, analysing behavioural studies on two colour morphs of the two-spot ladybird, has broadened my knowledge and ecology overall. It is apparent to see the differences in behaviours depending on their sexes or morphs. Both my hypothesis have been proven that melanic morphs have a better fitness which benefits their mating and females two spot ladybirds take longer to adpid attack compared to males. To improve this study further , analysing different types of ladybirds and how they admid attack.  Studies have shown that H. axyridis can quickly pose a threat to native insect communities, especially to other ladybirds (Ceryngier et al., 2017).
+
+# Bibliography 
+
+Benham, B.R., Lonsdale, D. and Muggleton, J. (1974). Is polymorphism in two-spot ladybird an example of non-industrial melanism? Nature, [online] 249(5453), pp.179–180. Available at: https://www.nature.com/articles/249179a0 (Assessed 10/05/21)
+
+Cook, L.M. and Saccheri, I.J. (2012). The peppered moth and industrial melanism: evolution of a natural selection case study. Heredity, [online] 110(3), pp.207–212. Available at: https://www.nature.com/articles/hdy201292. (Assessed 10/05/21)
+
+De Jong, P.W., Verhoog, M.D. and Brakefield, P.M. (1993). Sperm competition and melanic polymorphism in the 2-spot ladybird, Adalia bipunctata (Coleoptera, Coccinellidae). Heredity, 70(2), pp.172–178. (Assessed 10/05/21)
+Tomlinson, I.P.M., Kearns, P.W.E. and Veltman, C.J. (1995). Nonrandom mating in the two-spot ladybird (Adalia bipunctata): The influence of weight on mating success. Behavior Genetics, 25(5), pp.467–474. (Assessed 10/05/21)
+
+
+Ninkovic, V., Feng, Y., Olsson, U. and Pettersson, J. (2013). Ladybird footprints induce aphid avoidance behavior. Biological Control, 65(1), pp.63–71. (Assessed 10/05/21)
+
+Peebles, D. and Ali, N. (2015). Expert interpretation of bar and line graphs: the role of graphicacy in reducing the effect of graph format. Frontiers in Psychology, 6. (Assessed 10/05/21)
+
+Steele, T. and Bjørnson, S. (2014). Nosema adaliae sp. nov., a new microsporidian pathogen from the two-spotted lady beetle, Adalia bipunctata L. (Coleoptera: Coccinellidae) and its relationship to microsporidia that infect other coccinellids. Journal of Invertebrate Pathology, 115, pp.108–115. (Assessed 10/05/21)
+
+Stewart, L.A. and Dixon, A.F.G. (1989). Why Big Species of Ladybird Beetles are Not Melanic. Functional Ecology, 3(2), p.165. (Assessed 10/05/21)
+
+Zhang, S.-Q., Che, L.-H., Li, Y., Dan Liang, Pang, H., Ślipiński, A. and Zhang, P. (2018). Evolutionary history of Coleoptera revealed by extensive sampling of genes and species. Nature Communications, 9(1). (Assessed 10/05/21)
+
+Verheggen FJ, Vogel H and Vilcinskas A (2017) Behavioral and Immunological Features Promoting the Invasive Performance of the Harlequin Ladybird Harmonia axyridis. Front. Ecol. Evol. 5:156. doi: 10.3389/fevo.2017.00156
 

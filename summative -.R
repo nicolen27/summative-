@@ -30,14 +30,12 @@ weight_typical <-  Ladybird$Mass.Ave[Ladybird$Colour.morph=="T"]
 # create an unpaired ttest for loading into boxplot
 test <- t.test(weight_melanic, weight_typical, var.equal=TRUE) %>% adjust_pvalue(method="bonferroni") %>% add_significance()
 
-print(test)
 
-ggplot(Ladybird, aes(Colour.morph,Mass.Ave))+ geom_boxplot()+labs(x= 'Colour Morph', y= 'Average Mass') +
   scale_x_discrete(labels=c('Melanic','Typical'))+ stat_compare_means(method="t.test") 
 
 # males distribution vs feamles for p time mean 
 
-ggplot(Ladybird, aes(Sex,P.time.mean)) + geom_point()+labs(x= 'Sex', y= 'Time took to attack aphid')
+ggplot(Ladybird, aes(Sex,P.time.mean)) + geom_boxplot()+labs(x= 'Sex', y= 'Time took to attack aphid')
 test <- t.test('sex' ,'P.time.mean', var.equal=TRUE) %>% adjust_pvalue(method="bonferroni") %>% add_significance()
 
 
@@ -45,5 +43,5 @@ ggplot(Ladybird, aes(Colour.morph,Mass.Ave))+ geom_boxplot()+labs(x= 'Colour Mor
   scale_x_discrete(labels=c('Melanic','Typical')) + stat_compare_means(method="t.test") 
 
 
-ggplot(Ladybird, aes(Sex,P.time.mean)) + geom_point()+labs(x= 'Sex', y= 'Time took to attack aphid')+ stat_compare_means(method="t.test") 
+ggplot(Ladybird, aes(Sex,P.time.mean)) + geom_boxplot()+labs(x= 'Sex', y= 'Time took to attack aphid')+ stat_compare_means(method="t.test") 
 
