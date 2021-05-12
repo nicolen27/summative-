@@ -53,8 +53,7 @@ The of attack aphids can vary depending on the sex of the ladybird. I hypothesis
 This result showed the time it took to attack aphid on female and male two spot ladybirds was not statistically significant (p  0.05>). The female two spot ladybirds took longer to attack aphid compared to the males  which has supported my hypothesis. Statistical analysis was conducted using R studio by unpaired t- test. The results being  significant demonstrates a strong evidence for my  hypothesis. 
 
 ```{r}
-ggplot(Ladybird, aes(Colour.morph,Mass.Ave))+ geom_boxplot()+labs(x= 'Colour Morph', y= 'Average Mass') +
-  scale_x_discrete(labels=c('Melanic','Typical')) + stat_compare_means(method="t.test") 
+ggplot(Ladybird, aes(Sex,P.time.mean)) + geom_boxplot()+labs(x= 'Sex', y= 'Time took to attack aphid')+ stat_compare_means(method="t.test") 
 
 
 
