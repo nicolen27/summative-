@@ -13,10 +13,6 @@ Ladybird <- read.csv("/cloud/project/Ladybird.csv")
 print(head(Ladybird))
 
 
-# describe the number of different femles males, colour, distribution of weigths ect.
-
-
-# ggplot + .... bar plot with subgroups ect 
 
 
 # princple component analysis
@@ -37,16 +33,17 @@ test <- t.test(weight_melanic, weight_typical, var.equal=TRUE) %>% adjust_pvalue
 print(test)
 
 ggplot(Ladybird, aes(Colour.morph,Mass.Ave))+ geom_boxplot()+labs(x= 'Colour Morph', y= 'Average Mass') +
+  scale_x_discrete(labels=c('Melanic','Typical'))+ stat_compare_means(method="t.test") 
+
+# males distribution vs feamles for p time mean 
+
+ggplot(Ladybird, aes(Sex,P.time.mean)) + geom_point()+labs(x= 'Sex', y= 'Time took to attack aphid')
+test <- t.test('sex' ,'P.time.mean', var.equal=TRUE) %>% adjust_pvalue(method="bonferroni") %>% add_significance()
+
+
+ggplot(Ladybird, aes(Colour.morph,Mass.Ave))+ geom_boxplot()+labs(x= 'Colour Morph', y= 'Average Mass') +
   scale_x_discrete(labels=c('Melanic','Typical')) + stat_compare_means(method="t.test") 
 
 
-# males distribution vs feamles for the tuck time
-
-# aphid attack- melanic 
-
-ggplot(Ladybird, aes(Sex,P.time.mean)) + geom_point()+labs(x= 'Sex', y= 'Time took to attack aphid')
-
-# changing 
-
-
+ggplot(Ladybird, aes(Sex,P.time.mean)) + geom_point()+labs(x= 'Sex', y= 'Time took to attack aphid')+ stat_compare_means(method="t.test") 
 

@@ -1,30 +1,20 @@
 ---
 title: "Summative"
-output: html_document
+output: pdf_docoument 
 ---
 
 ```{r setup, include=FALSE}
 library(knitr)
+library(ggplot2)
+library(tidyverse)
+library(ggpubr)
+library(rstatix)
+
 Ladybird <- read.csv("/cloud/project/Ladybird.csv")
 head(Ladybird)
 ```
+#introduction
+As the field of ecology expands, so does analysing the behaviour studies on two -spot ladybirds. Coccinellidae, known as ladybirds, is from the family of the Coleoptera. The family of Beetles are the most diverse and species-rich group of insects (Zhang et al., 2018) with around  300,000 described species (Woodcock et al., 2013). A study has shown that not all ladybirds have the same predominant colour BOOK. the colours vary, for example, Adalia bipunctata known as two spot ladybirds have a red ground colour with black spots known as typical morphs whereas melanic morphs have a black ground colour with red spots. The two spot ladybird are becoming more widespread and survival of species in their areas. 
+The main objective of this report was to determine if there was any behavioural differences  between two colour morphs of the two-spot ladybird. As a result of the two colour morphs of the two spot ladybird, it is important that the behaviour is analysed. Currently, there is an abundance of research regarding this. Several studies state that melanics of both sexes have a general mating advantage over the typical morph due to the influence of body weight (Tomlinson, Kearns and Veltman, 1995). Whereas some studies suggest that melanic morphs will have a selective advantage over the non-melanics due to the greater ability to absorb solar radiation. Therefore clarification is needed.
 
-## R Markdown
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
